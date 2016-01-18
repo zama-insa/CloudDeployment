@@ -8,17 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import ssh.ConsumerFactory;
 import ssh.IConsumerFactory;
 import ssh.ProducerFactory;
 import ssh.SshManager;
 import ssh.ActiveMqFactory;
 import ssh.UltraEsbFactory;
 
-/**
- * Servlet implementation class init
- */
 @WebServlet("/Init")
 public class Init extends HttpServlet {
 	private static final long serialVersionUID = 1L;
