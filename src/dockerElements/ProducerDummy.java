@@ -1,7 +1,7 @@
 package dockerElements;
 import ssh.SshManager;
 public class ProducerDummy {
-	private String ProducerWarPath="/home/zakaria/dockerFiles/producer";
+	private String ProducerWarPath="/home/zakaria/testVodich/producer";
 	private String ProducerImage="tomcat";
 	private int ProducerPort=8080;
 	private String id;

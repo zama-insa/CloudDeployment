@@ -1,7 +1,7 @@
 package dockerElements;
 import ssh.SshManager;
 public class ConsumerDummy {
-	private String ConsumerJarPath="/home/zakaria/dockerFiles/consumer";
+	private String ConsumerJarPath="/home/zakaria/testVodich/consumer";
 	private String ConsumerImage="tomcat";
 	private int threadsNumber=100;
 	private String ip;

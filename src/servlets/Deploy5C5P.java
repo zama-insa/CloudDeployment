@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ssh.SshManager;
 import dockerElements.ConsumerDummy;
 import dockerElements.ProducerDummy;
 import dockerElements.UltraEsbDummy;
@@ -47,6 +48,7 @@ public class Deploy5C5P extends HttpServlet {
 		
 		List<String> ids=new ArrayList<String>();
 		
+		UltraEsbDummy.init();
 		ProducerDummy[] producerdummies=new ProducerDummy[5];
 		for (int i = 0; i < producerdummies.length;i++){
 			producerdummies[i]=new ProducerDummy(i+"");
