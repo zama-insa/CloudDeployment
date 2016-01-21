@@ -1,0 +1,5 @@
+docker run -v $PWD:/activemq --expose=6161 --name activeMq -d tomcat
+docker exec activeMq /activemq/bin/activemq start
+//modify ultra-unit.xml
+docker run --name ultraEsb -v /home/zakaria/dockerFiles/ultraesb:/opt/ultraesb-2.3.0-min/conf/deployments/default/ -d peterchapmanuk/ultraesb /opt/ultraesb-2.3.0-min/bin/ultraesb-daemon.sh console
+//launch Deploy5C5P servlet

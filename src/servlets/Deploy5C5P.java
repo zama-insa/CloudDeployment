@@ -51,14 +51,14 @@ public class Deploy5C5P extends HttpServlet {
 		UltraEsbDummy.init();
 		ProducerDummy[] producerdummies=new ProducerDummy[5];
 		for (int i = 0; i < producerdummies.length;i++){
-			producerdummies[i]=new ProducerDummy(i+"");
+			producerdummies[i]=new ProducerDummy(i+1);
 			UltraEsbDummy.addProducer(producerdummies[i]);
 			ids.add(producerdummies[i].getId());
 		}
 			
 		ConsumerDummy[] consumerdummies=new ConsumerDummy[5];
 		for(int i=0;i<consumerdummies.length;i++){
-			consumerdummies[i]=new ConsumerDummy("1");
+			consumerdummies[i]=new ConsumerDummy(i+1);
 			ids.add(consumerdummies[i].getId());
 		}
 		

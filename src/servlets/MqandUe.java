@@ -29,7 +29,7 @@ public class MqandUe extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String activeMqId=SshManager.execOnDocker("docker run -p 6161:61616 -d webcenter/activemq");
+		String activeMqId=SshManager.execOnDocker("docker run -d webcenter/activemq");
 		String activeMqIp=SshManager.execOnDocker("docker inspect --format '{{ .NetworkSettings.IPAddress }}' "+activeMqId);
 		int activeMqPort=61616;
 		String activeMqAddress="tcp://"+activeMqIp+":"+activeMqPort;

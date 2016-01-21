@@ -7,11 +7,11 @@ public class UltraEsbDummy {
 	private static String ultraConfPath="/home/zakaria/testVodich/ultraesb/ultra-unit.xml";
 	private static int offset=12;
 	private static int UltraEsbPort=8280;
-	private static String id="e1efe655ef88";
+	private static String id="1afe9fb96b69";
 	private static String ip="172.17.0.3";
 	public static void addProducer(ProducerDummy producerdummy){
 		String producerAddress=producerdummy.getProducerAdress();
-		String s="<u:proxy id=\""+producerdummy.getNom()+"\">";
+		String s="<u:proxy id=\""+producerdummy.getNumber()+"\">";
 		s+="<u:transport id=\"http-8280\">";
 		s+="</u:transport>";
 	  	s+="<u:target>";

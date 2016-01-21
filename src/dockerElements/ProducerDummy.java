@@ -1,18 +1,18 @@
 package dockerElements;
 import ssh.SshManager;
 public class ProducerDummy {
-	private String ProducerWarPath="/home/zakaria/testVodich/producer";
-	private String ProducerImage="tomcat";
+	private String ProducerWarPath="/home/zakaria/testVodich/producer/newp";
+	private String ProducerImage="tomcat:8.0.30-jre8";
 	private int ProducerPort=8080;
 	private String id;
 	private String ip;
 	private String ProducerAdress;
-	private String nom;
-	public ProducerDummy(String nom){	
-		id=SshManager.execOnDocker("docker run -d -v "+ProducerWarPath+":/usr/local/tomcat/webapps "+ProducerImage);
+	private int number;
+	public ProducerDummy(int number){	
+		id=SshManager.execOnDocker("docker run --name ProducerDummy"+number+" -d -v "+ProducerWarPath+":/usr/local/tomcat/webapps "+ProducerImage);
 		ip=SshManager.execOnDocker("docker inspect --format '{{ .NetworkSettings.IPAddress }}' "+id);
 		setProducerAdress("http://"+ip+":"+ProducerPort+"/Producer/services/Producer?wsdl");
-		this.setNom(nom);
+		this.setNumber(number);
 	}
 	public String getIp() {
 		return ip;
@@ -32,11 +32,12 @@ public class ProducerDummy {
 	public void setProducerAdress(String producerAdress) {
 		ProducerAdress = producerAdress;
 	}
-	public String getNom() {
-		return nom;
+	public int getNumber() {
+		return number;
 	}
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNumber(int number) {
+		this.number = number;
 	}
+	
 	
 }

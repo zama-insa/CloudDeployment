@@ -48,9 +48,7 @@ public class Init extends HttpServlet {
 		String ConsumerIp=IConsumerFactory.createConsumer(UltraEsbAdress);
 		System.out.println("******Consumer Ip ******"+ConsumerIp);
 		
-		System.out.println("******Launching ActiveMq ******");
-		String ActiveMqAddress=ActiveMqFactory.createActiveMq();
-		System.out.println("******ActiveMq Address ******"+ActiveMqAddress);
+		
 		
 		//to do 
 		/*System.out.println("******Launching Consumer ******");

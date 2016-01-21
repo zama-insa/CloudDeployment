@@ -2,15 +2,18 @@ package dockerElements;
 import ssh.SshManager;
 public class ConsumerDummy {
 	private String ConsumerJarPath="/home/zakaria/testVodich/consumer";
-	private String ConsumerImage="tomcat";
+	private String ConsumerImage="lwieske/java-8";
 	private int threadsNumber=100;
 	private String ip;
 	private String id;
-	public ConsumerDummy(String consumerName){
-		id=SshManager.execOnDocker("docker run -d -v "+ConsumerJarPath+":/jar "+ConsumerImage);
+	
+	//docker run --name tester -d -v $PWD:/jar lwieske/java-8 java -jar /jar/test.jar
+	public ConsumerDummy(int consumerNumber){
+		String options=consumerNumber+" "+threadsNumber;
+		id=SshManager.execOnDocker("docker run --name ConsumerDummy"+consumerNumber+" -d -v "+ConsumerJarPath+":/jar "+ConsumerImage+" java -jar /jar/Consumer"+consumerNumber+".jar "+options);
 		setIp(SshManager.execOnDocker("docker inspect --format '{{ .NetworkSettings.IPAddress }}' "+id));
-		String options=consumerName+" "+threadsNumber;
-		SshManager.execOnDocker("docker exec "+id+" java -jar /jar/Consumer"+consumerName+".jar "+options);
+		
+		//SshManager.execOnDocker("docker exec "+id+" java -jar /jar/Consumer"+consumerNumber+".jar "+options);
 	}
 	public String getIp() {
 		return ip;
